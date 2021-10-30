@@ -1,5 +1,3 @@
-library(shiny)
-
 # Define UI for application that shows prior, likelihood and posterior
 shinyUI(fluidPage(withMathJax(),
 
