@@ -19,7 +19,7 @@ shinyServer(function(input, output) {
             ggplot2::geom_line(ggplot2::aes(x, likelihood, color = "likelihood"), size = 2) +
             ggplot2::geom_line(ggplot2::aes(x, posterior, color = "posterior"), size = 2) + 
             ggplot2::theme(legend.position = "bottom") +
-            ggplot2::scale_color_manual(name = "Densidad:", values = c("salmon", "skyblue", "purple"), breaks = c("prior", "likelihood", "posterior")) +
+            ggplot2::scale_color_manual(name = "Density:", values = c("salmon", "skyblue", "purple"), breaks = c("prior", "likelihood", "posterior")) +
             ggplot2::xlab(expression(theta)) + ggplot2::ylab(NULL) +
             ggplot2::theme_bw() + ggplot2::theme(text = ggplot2::element_text(size = 20))
     })
