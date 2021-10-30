@@ -1,7 +1,3 @@
-#
-# This is the server logic of a Shiny web application. You can run the
-library(shiny)
-
 # Define server logic required to plot the densities
 shinyServer(function(input, output) {
 
@@ -15,17 +11,17 @@ shinyServer(function(input, output) {
                            posterior = dbeta(grid, input$y + input$alpha, input$n - input$y + input$beta))
 
         # draw the densities
-        ggplot(data, aes(x)) + 
-            geom_area(aes(y = prior), fill = "salmon", alpha=0.6) +
-            geom_area(aes(y = likelihood), fill = "skyblue", alpha=0.6) +
-            geom_area(aes(y = posterior), fill = "purple", alpha=0.6) +
-            geom_line(aes(x, prior, color = "prior"), size = 2) +
-            geom_line(aes(x, likelihood, color = "likelihood"), size = 2) +
-            geom_line(aes(x, posterior, color = "posterior"), size = 2) + 
+        ggplot2::ggplot(data, ggplot2::aes(x)) + 
+            ggplot2::geom_area(ggplot2::aes(y = prior), fill = "salmon", alpha=0.6) +
+            ggplot2::geom_area(ggplot2::aes(y = likelihood), fill = "skyblue", alpha=0.6) +
+            ggplot2::geom_area(ggplot2::aes(y = posterior), fill = "purple", alpha=0.6) +
+            ggplot2::geom_line(ggplot2::aes(x, prior, color = "prior"), size = 2) +
+            ggplot2::geom_line(ggplot2::aes(x, likelihood, color = "likelihood"), size = 2) +
+            ggplot2::geom_line(ggplot2::aes(x, posterior, color = "posterior"), size = 2) + 
             ggplot2::theme(legend.position = "bottom") +
-            scale_color_manual(name = "Densidad:", values = c("salmon", "skyblue", "purple"), breaks = c("prior", "likelihood", "posterior")) +
-            xlab(expression(theta)) + ylab(NULL) +
-            ggplot2::theme_bw() + theme(text = element_text(size = 20))
+            ggplot2::scale_color_manual(name = "Densidad:", values = c("salmon", "skyblue", "purple"), breaks = c("prior", "likelihood", "posterior")) +
+            ggplot2::xlab(expression(theta)) + ggplot2::ylab(NULL) +
+            ggplot2::theme_bw() + ggplot2::theme(text = ggplot2::element_text(size = 20))
     })
 
 })
